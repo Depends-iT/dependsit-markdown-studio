@@ -1,0 +1,24 @@
+# DependsiT Markdown Studio
+
+> A free, open-source Markdown editor and document converter that runs entirely in your browser.
+
+- [Source Code (GitHub)](https://github.com/Depends-iT/dependsit-markdown-studio)
+- [Report an Issue](https://github.com/Depends-iT/dependsit-markdown-studio/issues)
+- [MIT License](https://github.com/Depends-iT/dependsit-markdown-studio/blob/main/LICENSE)
+
+## Features
+
+- Split-pane Markdown editor with live preview
+- Import: PDF, DOCX, PPTX, XLSX, CSV, HTML, JSON, XML, EPUB, RTF
+- Export: Markdown, PDF, DOCX, HTML, plain text
+- GFM tables, KaTeX math, Mermaid diagrams
+- Tabbed workspace with IndexedDB persistence
+- Find and replace with regex support
+- Document statistics with readability scoring
+- Command palette (Ctrl+K)
+- Custom user snippets
+- Focus / zen mode
+- Light, sepia, and dark themes
+- Word count goal tracking
+- Print support
+- 100% client-side — your files never leave your device

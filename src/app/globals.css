@@ -1,0 +1,715 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.205 0 0);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* =========================================================================
+   DependsiT Markdown Studio — design tokens & editor surface styles
+   The studio uses its own warm "paper" palette on top of Tailwind.
+   ========================================================================= */
+
+:root {
+  /* Studio palette (light) */
+  --studio-bg-base: #F5F1E8;
+  --studio-surface-1: #EBE6D9;
+  --studio-surface-2: #DFD9C7;
+  --studio-border: #C8C2AF;
+  --studio-signal: #109E7C;
+  --studio-text-main: #121212;
+  --studio-text-high: rgba(18, 18, 18, 0.87);
+  --studio-text-medium: #333333;
+  --studio-text-low: #666666;
+
+  /* Map studio tokens onto the generic --color-* names used by the studio UI */
+  --color-base: var(--studio-bg-base);
+  --color-surface-1: var(--studio-surface-1);
+  --color-surface-2: var(--studio-surface-2);
+  --color-border: var(--studio-border);
+  --color-signal: var(--studio-signal);
+  --color-text-main: var(--studio-text-main);
+  --color-text-high: var(--studio-text-high);
+  --color-text-medium: var(--studio-text-medium);
+  --color-text-low: var(--studio-text-low);
+
+  --font-heading: var(--font-geist-sans), sans-serif;
+  --font-body: var(--font-geist-sans), sans-serif;
+  --font-mono: var(--font-geist-mono), "JetBrains Mono", monospace;
+}
+
+.dark {
+  /* Studio palette (dark) */
+  --studio-bg-base: #121212;
+  --studio-surface-1: #1A1A1A;
+  --studio-surface-2: #2D2D2D;
+  --studio-border: #444444;
+  --studio-signal: #22E3B0;
+  --studio-text-main: #FFFFFF;
+  --studio-text-high: rgba(255, 255, 255, 0.87);
+  --studio-text-medium: #E0E0E0;
+  --studio-text-low: #B0B0B0;
+
+  --color-base: var(--studio-bg-base);
+  --color-surface-1: var(--studio-surface-1);
+  --color-surface-2: var(--studio-surface-2);
+  --color-border: var(--studio-border);
+  --color-signal: var(--studio-signal);
+  --color-text-main: var(--studio-text-main);
+  --color-text-high: var(--studio-text-high);
+  --color-text-medium: var(--studio-text-medium);
+  --color-text-low: var(--studio-text-low);
+}
+
+/* Sepia — a warm, low-contrast reading palette for extended writing sessions.
+   Reuses the light editor mode but swaps the surrounding tokens. */
+.theme-sepia {
+  --studio-bg-base: #F4ECD8;
+  --studio-surface-1: #EBE0C5;
+  --studio-surface-2: #DDCEA8;
+  --studio-border: #C9B68C;
+  --studio-signal: #9C6B2E;
+  --studio-text-main: #3E2C18;
+  --studio-text-high: rgba(62, 44, 24, 0.87);
+  --studio-text-medium: #5C4528;
+  --studio-text-low: #8A6F47;
+
+  --color-base: var(--studio-bg-base);
+  --color-surface-1: var(--studio-surface-1);
+  --color-surface-2: var(--studio-surface-2);
+  --color-border: var(--studio-border);
+  --color-signal: var(--studio-signal);
+  --color-text-main: var(--studio-text-main);
+  --color-text-high: var(--studio-text-high);
+  --color-text-medium: var(--studio-text-medium);
+  --color-text-low: var(--studio-text-low);
+}
+
+/* Theme transitions on structural layout shells only — editor surfaces inherit instantly */
+body,
+header,
+footer {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Hide scrollbars on the tab strip */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Studio scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-1);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-surface-2);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border);
+}
+
+/* ---- @uiw/react-md-editor surface integration ---- */
+.editor-container .w-md-editor-content {
+  flex: 1 1 auto;
+  overflow: auto;
+  contain: layout style;
+  will-change: scroll-position;
+}
+
+.editor-container .w-md-editor-text-input,
+.editor-container .w-md-editor-text-pre {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
+  min-height: 100% !important;
+}
+
+.markdown-body {
+  word-wrap: break-word;
+  background-color: transparent !important;
+  color: var(--color-text-main) !important;
+}
+
+.w-md-editor {
+  background-color: transparent !important;
+  color: var(--color-text-main) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.w-md-editor-toolbar {
+  background-color: var(--color-surface-1) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.w-md-editor-toolbar li > button {
+  color: var(--color-text-main) !important;
+}
+
+.w-md-editor-toolbar li > button:hover {
+  background-color: var(--color-surface-2) !important;
+  color: var(--color-signal) !important;
+}
+
+/* Hide app header when editor enters native fullscreen */
+.w-md-editor-fullscreen .md-header-container {
+  display: none !important;
+}
+
+.markdown-body pre {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.w-md-editor.w-md-editor-fullscreen {
+  z-index: 9999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+}
+
+:has(.w-md-editor-fullscreen) .md-header-container {
+  display: none !important;
+}
+
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.02em;
+}
+
+.katex-display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 12px 0;
+  scrollbar-width: thin;
+}
+
+.backdrop-blur-sm {
+  backdrop-filter: blur(8px) !important;
+}
+
+@keyframes modal-enter {
+  from {
+    opacity: 0;
+    transform: scale(0.97) translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 8px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+/* Flash highlight when jumping to a heading from the outline sidebar. */
+@keyframes outline-flash {
+  0% {
+    background-color: var(--color-signal);
+    color: #fff;
+  }
+  100% {
+    background-color: transparent;
+    color: inherit;
+  }
+}
+.outline-flash {
+  animation: outline-flash 1.2s ease-out;
+  border-radius: 4px;
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-signal) 18%, transparent);
+}
+
+/* Unify the editor textarea + preview pane backgrounds so the split view reads
+   as one continuous surface rather than two disjoint panels. */
+.editor-container .w-md-editor-text-pre,
+.editor-container .w-md-editor-text-input {
+  background-color: transparent !important;
+}
+.editor-container .wmde-markdown {
+  background-color: transparent !important;
+  color: var(--color-text-main) !important;
+}
+.editor-container .w-md-editor-content {
+  background-color: var(--color-base) !important;
+}
+
+/* Subtle divider between editor and preview panes. */
+.editor-container .w-md-editor-content::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--color-border);
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+/* Better blockquote + code styling in the preview for a more polished read. */
+.markdown-body blockquote {
+  border-left: 3px solid var(--color-signal) !important;
+  padding-left: 1rem !important;
+  margin-left: 0 !important;
+  color: var(--color-text-medium) !important;
+  font-style: italic;
+}
+
+.markdown-body code:not(.language-mermaid) {
+  background: var(--color-surface-2) !important;
+  padding: 0.1em 0.35em !important;
+  border-radius: 4px !important;
+  font-size: 0.9em !important;
+}
+
+.markdown-body pre {
+  background: var(--color-surface-1) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: 8px !important;
+  padding: 14px 16px !important;
+}
+
+.markdown-body pre code {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* Crisper table rendering in the preview. */
+.markdown-body table {
+  border-collapse: collapse !important;
+  width: auto !important;
+}
+.markdown-body th,
+.markdown-body td {
+  border: 1px solid var(--color-border) !important;
+  padding: 6px 12px !important;
+}
+.markdown-body th {
+  background: var(--color-surface-1) !important;
+  font-weight: 600 !important;
+}
+.markdown-body tr:nth-child(even) td {
+  background: var(--color-surface-1) !important;
+}
+
+@media (max-width: 640px) {
+  .w-md-editor-toolbar button {
+    min-width: 44px !important;
+    min-height: 44px !important;
+    margin: 1px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+  .w-md-editor-toolbar ul {
+    overflow-x: auto;
+    flex-wrap: nowrap !important;
+    scrollbar-width: thin;
+  }
+}
+
+/* Mobile: prevent iOS zoom-on-focus for ALL inputs/textareas (16px minimum). */
+@media (max-width: 640px) {
+  input[type="text"],
+  input[type="number"],
+  input[type="search"],
+  input:not([type]),
+  textarea {
+    font-size: 16px !important;
+  }
+  /* Restore smaller font for status-bar / kbd displays that aren't inputs */
+  kbd,
+  .font-mono:not(input):not(textarea) {
+    font-size: inherit;
+  }
+}
+
+/* Mobile: ensure all interactive elements in dialogs/menus meet 44px touch target. */
+@media (max-width: 640px) {
+  [role="dialog"] button:not(.touch-exempt),
+  [role="menu"] button[role="menuitem"],
+  [role="option"] {
+    min-height: 44px;
+  }
+}
+
+/* Safe-area insets for iOS notch / home indicator. */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .pb-safe {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .pt-safe {
+    padding-top: env(safe-area-inset-top);
+  }
+  .pl-safe {
+    padding-left: env(safe-area-inset-left);
+  }
+  .pr-safe {
+    padding-right: env(safe-area-inset-right);
+  }
+}
+
+/* dvh fallback for older browsers (Safari < 15.4). */
+@supports not (height: 100dvh) {
+  .h-dvh {
+    height: 100vh;
+  }
+}
+
+/* Focus / zen mode: widen the editor pane for distraction-free writing and
+   soften the surrounding chrome. */
+.zen-mode .editor-container .w-md-editor-content {
+  max-width: 820px;
+  margin: 0 auto;
+  width: 100%;
+}
+.zen-mode .w-md-editor-toolbar {
+  opacity: 0.45;
+  transition: opacity 0.2s ease;
+}
+.zen-mode .w-md-editor-toolbar:hover {
+  opacity: 1;
+}
+
+/* Tab strip polish: thicker active indicator + smoother hover lift. */
+.tab-active {
+  box-shadow: inset 0 -2px 0 var(--color-signal);
+}
+
+/* Find/replace match highlight ring on the textarea (selected match). */
+.w-md-editor-text-input:focus-visible {
+  outline: none;
+}
+
+/* Custom scrollbar for the outline + find bar (inherits the studio look). */
+aside[aria-label="Document outline"]::-webkit-scrollbar {
+  width: 6px;
+}
+aside[aria-label="Document outline"]::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+/* Subtle entrance for toolbar buttons when they first mount. */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Preview link styling — distinct from body text so links are recognizable. */
+.markdown-body a {
+  color: var(--color-signal) !important;
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-signal) 35%, transparent);
+  transition: border-color 0.15s ease;
+}
+.markdown-body a:hover {
+  border-bottom-color: var(--color-signal);
+}
+
+/* Horizontal rule — a thin, centered divider instead of a full-width bar. */
+.markdown-body hr {
+  border: none !important;
+  height: 1px !important;
+  background: var(--color-border) !important;
+  margin: 24px auto !important;
+  width: 60%;
+}
+
+/* Goal reached pulse — a gentle celebratory glow on the goal ring. */
+@keyframes goal-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+.markdown-body img {
+  border-radius: 8px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Tighten list spacing in the preview for better density. */
+.markdown-body ul,
+.markdown-body ol {
+  padding-left: 1.5em !important;
+  margin: 0.5em 0 !important;
+}
+.markdown-body li + li {
+  margin-top: 2px;
+}
+
+/* Consistent scrollbar styling for the find/replace bar inputs. */
+[role="search"] input::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+[role="search"] input::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+
+/* Tab drag cursor — indicate tabs are draggable. */
+[role="tab"][draggable="true"] {
+  cursor: grab;
+}
+[role="tab"][draggable="true"]:active {
+  cursor: grabbing;
+}
+
+/* Mobile: compact the find/replace bar so it doesn't overflow. */
+@media (max-width: 640px) {
+  [role="search"][aria-label="Find and replace"] {
+    padding: 6px 8px;
+    gap: 6px;
+  }
+  [role="search"][aria-label="Find and replace"] input {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+}
+
+/* Mobile: command palette fills more of the screen. */
+@media (max-width: 640px) {
+  [role="dialog"][aria-label="Command palette"] > div:last-child {
+    max-width: 100% !important;
+    margin: 0 8px;
+  }
+}
+
+/* Drag indicator animation for tabs being dropped on. */
+@keyframes tab-drop-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+/* Focus-visible rings for all interactive elements — keyboard a11y.
+   Uses the signal color so focus is consistent with the brand. */
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+[role="tab"]:focus-visible,
+[role="menuitem"]:focus-visible,
+[role="option"]:focus-visible {
+  outline: 2px solid var(--color-signal) !important;
+  outline-offset: 2px !important;
+  border-radius: 4px;
+}
+
+/* Smooth scale on toolbar button press for tactile feedback. */
+header button:active:not(:disabled) {
+  transform: scale(0.96);
+  transition: transform 0.05s ease;
+}
+
+/* Subtle transition on tab indicator for reorder feedback. */
+[role="tab"] {
+  transition: background-color 0.1s ease, color 0.1s ease, opacity 0.15s ease, border-color 0.15s ease;
+}
+
+/* Reduce motion preference — disable non-essential animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Selection color in the preview pane. */
+.wmde-markdown ::selection {
+  background: color-mix(in srgb, var(--color-signal) 25%, transparent);
+  color: inherit;
+}
+
+/* Preview typography refinements for a more readable, document-like feel. */
+.markdown-body {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.markdown-body p {
+  margin: 0.75em 0;
+}
+.markdown-body h1 {
+  font-size: 1.9em;
+  margin-top: 0.5em;
+  margin-bottom: 0.4em;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.2em;
+}
+.markdown-body h2 {
+  font-size: 1.5em;
+  margin-top: 1.2em;
+  margin-bottom: 0.4em;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 0.15em;
+}
+.markdown-body h3 {
+  font-size: 1.25em;
+  margin-top: 1em;
+  margin-bottom: 0.3em;
+}
+.markdown-body h4 {
+  font-size: 1.1em;
+  margin-top: 0.9em;
+  margin-bottom: 0.3em;
+}
+.markdown-body li {
+  margin: 0.2em 0;
+}
+.markdown-body blockquote p {
+  margin: 0.3em 0;
+}
+
+/* Task list checkboxes in the preview — signal-colored when checked. */
+.markdown-body input[type="checkbox"]:checked {
+  accent-color: var(--color-signal);
+}
+
+/* Context menu: prevent text selection flash on rapid open. */
+[role="menu"] {
+  -webkit-user-select: none;
+  user-select: none;
+}

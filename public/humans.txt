@@ -1,0 +1,12 @@
+/* DependsiT Markdown Studio */
+/* https://github.com/Depends-iT/dependsit-markdown-studio */
+
+/* Team */
+  Developer: DependsiT
+  GitHub: https://github.com/Depends-iT
+
+/* Technology */
+  Language: TypeScript
+  Framework: Next.js 16, React 19
+  Styling: Tailwind CSS 4
+  License: MIT
